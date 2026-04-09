@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Add a New Pantry Item</h2>
+
+<form method="POST">
+    <div class="mb-3">
+        <label for="name" class="form-label">Food Item Name</label>
+        <input type="text" id="name" name="name" class="form-control" placeholder="e.g. Milk" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="expiration_date" class="form-label">Expiration Date</label>
+        <input type="date" id="expiration_date" name="expiration_date" class="form-control" required>
+    </div>
+
+    <button type="submit" class="btn btn-success">Add Item</button>
+</form>
+
+<br>
+<a href="/pantry" class="btn btn-secondary">Back to Pantry</a>
+
+{% endblock %}
