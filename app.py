@@ -58,6 +58,18 @@ def delete_item(item_id):
 
     return redirect('/pantry')
 
+@app.route('/edit/<int:item_id>', methods=['GET', 'POST'])
+def edit_item(item_id):
+    item = Item.query.get_or_404(item_id)
+    
+    if request.method == 'POST':
+        item.name = request.form['name']
+        item.expiration_date = datetime.strptime(request.form['expiration_date'], '%Y-%m-%d').date()
+        db.session.commit()
+        return redirect('/pantry')
+    
+    return render_template('edit_item.html', item=item)
+
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
