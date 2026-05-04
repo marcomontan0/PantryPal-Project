@@ -1,19 +1,20 @@
 {% extends 'base.html' %}
 {% block content %}
+
 <h2>Edit Item</h2>
 
 <form method="POST">
     <div class="mb-3">
-        <label>Food Name</label>
+        <label class="form-label">Food Name</label>
         <input type="text" name="name" class="form-control" value="{{ item.name }}" required>
     </div>
-    
+
     <div class="mb-3">
-        <label>Expiration Date</label>
+        <label class="form-label">Expiration Date</label>
         <input type="date" name="expiration_date" class="form-control" 
                value="{{ item.expiration_date.strftime('%Y-%m-%d') }}" required>
     </div>
-    
+
     <button type="submit" class="btn btn-success">Save Changes</button>
     <a href="/pantry" class="btn btn-secondary">Cancel</a>
 </form>
